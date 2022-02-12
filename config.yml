@@ -2,6 +2,7 @@ baseURL: https://kevfan.github.io/
 languageCode: en-us
 title: Kevin Fan
 theme: "PaperMod"
+publishDir: "docs"
 
 params:
   homeInfoParams:
