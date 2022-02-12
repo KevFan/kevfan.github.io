@@ -1,0 +1,14 @@
+baseURL: http://kevfan.github.io/
+languageCode: en-us
+title: Kevin Fan
+theme: "PaperMod"
+
+params:
+  homeInfoParams:
+    Content: Welcome ! Hoping to put a blog post or two here eventually..
+    
+  socialIcons:
+    - name: github
+      url: "https://github.com/KevFan"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/kevfan/"
