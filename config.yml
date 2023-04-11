@@ -6,10 +6,14 @@ publishDir: "docs"
 
 params:
   homeInfoParams:
-    Content: Welcome ! Hoping to put a blog post or two here eventually..
+    Content: Welcome! This is just a place for me to share some tech blogs that I believe might be helpful for others.
     
   socialIcons:
     - name: github
       url: "https://github.com/KevFan"
     - name: linkedin
       url: "https://www.linkedin.com/in/kevfan/"
+  
+  ShowCodeCopyButtons: true
+  ShowReadingTime: true
+  ShowShareButtons: true
