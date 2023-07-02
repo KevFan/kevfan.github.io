@@ -1,7 +1,6 @@
 ---
 title: "Managing HTTP Connections in Go: Preventing Go Routine Leaks"
 date: 2023-07-02T16:32:12+01:00
-draft: true
 ---
 
 ## Motivation
