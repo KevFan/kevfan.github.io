@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://kevfan.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.104.2" />
+<meta name="generator" content="Hugo 0.112.5">
 <link rel="alternate" type="application/rss+xml" href="https://kevfan.github.io/posts/index.xml">
 <noscript>
     <style>
@@ -129,6 +129,18 @@
 <header class="page-header">
   <h1>Posts</h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Managing HTTP Connections in Go: Preventing Go Routine Leaks
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Motivation While working on a Go service, I encountered an intriguing problem: a goroutine leak caused by unclosed HTTP connections. This issue was challenging to reproduce as it only occurred when a specific service utilized Resty and custom HTTP transport options while interacting with our service. Delving deeper into the intricacies of managing HTTP connections, I realized the criticality of diligently checking and managing these connections. This blog post aims to shed light on this problem and emphasize the importance of managing HTTP connections to prevent goroutine leaks....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-07-02 16:32:12 +0100 IST'>July 2, 2023</span>&nbsp;·&nbsp;4 min</footer>
+  <a class="entry-link" aria-label="post link to Managing HTTP Connections in Go: Preventing Go Routine Leaks" href="https://kevfan.github.io/posts/go-routine-leak-http-connections/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">

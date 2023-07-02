@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Kevin Fan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Apr 2023 21:48:22 +0100</lastBuildDate><atom:link href="https://kevfan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2023 16:32:12 +0100</lastBuildDate><atom:link href="https://kevfan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing HTTP Connections in Go: Preventing Go Routine Leaks</title>
+      <link>https://kevfan.github.io/posts/go-routine-leak-http-connections/</link>
+      <pubDate>Sun, 02 Jul 2023 16:32:12 +0100</pubDate>
+      
+      <guid>https://kevfan.github.io/posts/go-routine-leak-http-connections/</guid>
+      <description>Motivation While working on a Go service, I encountered an intriguing problem: a goroutine leak caused by unclosed HTTP connections. This issue was challenging to reproduce as it only occurred when a specific service utilized Resty and custom HTTP transport options while interacting with our service. Delving deeper into the intricacies of managing HTTP connections, I realized the criticality of diligently checking and managing these connections. This blog post aims to shed light on this problem and emphasize the importance of managing HTTP connections to prevent goroutine leaks.</description>
+    </item>
+    
     <item>
       <title>Javalin &amp; Flyway</title>
       <link>https://kevfan.github.io/posts/javalin-flyway/</link>
