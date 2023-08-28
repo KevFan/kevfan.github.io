@@ -17,3 +17,4 @@ params:
   ShowCodeCopyButtons: true
   ShowReadingTime: true
   ShowShareButtons: true
+  ShowPostNavLinks: true

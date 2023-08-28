@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Posts | Kevin Fan</title>
-<meta name="keywords" content="" />
+<meta name="keywords" content="">
 <meta name="description" content="Posts - Kevin Fan">
 <meta name="author" content="">
-<link rel="canonical" href="https://kevfan.github.io/posts/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<link rel="canonical" href="https://kevfan.github.io/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kevfan.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kevfan.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kevfan.github.io/favicon-32x32.png">
@@ -18,7 +18,6 @@
 <link rel="mask-icon" href="https://kevfan.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.112.5">
 <link rel="alternate" type="application/rss+xml" href="https://kevfan.github.io/posts/index.xml">
 <noscript>
     <style>
@@ -98,14 +97,14 @@
     <nav class="nav">
         <div class="logo">
             <a href="https://kevfan.github.io/" accesskey="h" title="Kevin Fan (Alt + H)">Kevin Fan</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -119,7 +118,7 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
         </ul>
@@ -127,7 +126,9 @@
 </header>
 <main class="main"> 
 <header class="page-header">
-  <h1>Posts</h1>
+  <h1>
+    Posts
+  </h1>
 </header>
 
 <article class="post-entry"> 
@@ -135,9 +136,9 @@
     <h2>Managing HTTP Connections in Go: Preventing Go Routine Leaks
     </h2>
   </header>
-  <section class="entry-content">
+  <div class="entry-content">
     <p>Motivation While working on a Go service, I encountered an intriguing problem: a goroutine leak caused by unclosed HTTP connections. This issue was challenging to reproduce as it only occurred when a specific service utilized Resty and custom HTTP transport options while interacting with our service. Delving deeper into the intricacies of managing HTTP connections, I realized the criticality of diligently checking and managing these connections. This blog post aims to shed light on this problem and emphasize the importance of managing HTTP connections to prevent goroutine leaks....</p>
-  </section>
+  </div>
   <footer class="entry-footer"><span title='2023-07-02 16:32:12 +0100 IST'>July 2, 2023</span>&nbsp;·&nbsp;4 min</footer>
   <a class="entry-link" aria-label="post link to Managing HTTP Connections in Go: Preventing Go Routine Leaks" href="https://kevfan.github.io/posts/go-routine-leak-http-connections/"></a>
 </article>
@@ -147,9 +148,9 @@
     <h2>Javalin &amp; Flyway
     </h2>
   </header>
-  <section class="entry-content">
+  <div class="entry-content">
     <p>Motivation Some time ago, while working on a college assignment using Javalin, I encountered some labs that required running SQL statements manually on the database before deploying the application to Heroku. This was a tedious task that had to be repeated every time there were changes or additions to the tables. Although I knew about Flyway and its ability to automate database migrations, I couldn’t find any tutorial on the Javalin site that explained how to use it....</p>
-  </section>
+  </div>
   <footer class="entry-footer"><span title='2023-04-11 21:48:22 +0100 IST'>April 11, 2023</span>&nbsp;·&nbsp;4 min</footer>
   <a class="entry-link" aria-label="post link to Javalin &amp; Flyway" href="https://kevfan.github.io/posts/javalin-flyway/"></a>
 </article>
@@ -160,7 +161,7 @@
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
