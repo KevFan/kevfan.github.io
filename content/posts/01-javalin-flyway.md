@@ -1,7 +1,7 @@
----
-title: "Javalin & Flyway"
-date: 2023-04-11T21:48:22+01:00
----
++++
+title = 'Javalin & Flyway'
+date = 2023-04-11T21:48:22+01:00
++++
 
 ## Motivation
 Some time ago, while working on a college assignment using Javalin, I encountered some labs that required running SQL statements manually on the database before deploying the application to [Heroku](https://www.heroku.com/). This was a tedious task that had to be repeated every time there were changes or additions to the tables. Although I knew about Flyway and its ability to automate database migrations, I couldn't find any tutorial on the [Javalin site](https://javalin.io/tutorials/) that explained how to use it. Therefore, I decided to write a short blog post that could be helpful to anyone facing a similar situation.

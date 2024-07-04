@@ -1,0 +1,21 @@
+baseURL = "https://kevfan.github.io/"
+languageCode = "en-us"
+title = "Kevin Fan"
+theme = "PaperMod"
+
+[params]
+  ShowCodeCopyButtons = true
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+
+  [params.homeInfoParams]
+    Content = "Welcome! This is just a place for me to share some tech blogs that I believe might be helpful for others."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/KevFan"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/kevfan/"

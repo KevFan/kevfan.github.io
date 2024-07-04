@@ -1,7 +1,7 @@
----
-title: "Managing HTTP Connections in Go: Preventing Go Routine Leaks"
-date: 2023-07-02T16:32:12+01:00
----
++++
+title = 'Managing HTTP Connections in Go: Preventing Go Routine Leaks'
+date = 2023-07-02T16:32:12+01:00
++++
 
 ## Motivation
 While working on a Go service, I encountered an intriguing problem: a goroutine leak caused by unclosed HTTP connections. This issue was challenging to reproduce as it only occurred when a specific service utilized [Resty](https://github.com/go-resty/resty) and custom [HTTP transport options](https://pkg.go.dev/net/http#Transport) while interacting with our service. Delving deeper into the intricacies of managing HTTP connections, I realized the criticality of diligently checking and managing these connections. This blog post aims to shed light on this problem and emphasize the importance of managing HTTP connections to prevent goroutine leaks. By understanding the underlying mechanisms and implementing appropriate strategies, developers can ensure optimal performance and stability in their Go applications.
@@ -73,5 +73,4 @@ You can find a sample project on my GitHub [here](https://github.com/KevFan/rest
 
 ## Conclusion
 Managing HTTP connections is a critical aspect of developing robust and efficient Go applications. Failure to handle connections properly can result in goroutine leaks, performance degradation, and resource exhaustion. The real-world scenario we explored in this blog post highlighted the importance of setting correct transport options to prevent goroutine leaks caused by unclosed HTTP connections.
-
 In conclusion, this blog post emphasized the significance of setting correct transport options in managing HTTP connections in Go applications. It demonstrated the importance of identifying and resolving goroutine leaks caused by unclosed connections and provided insights into implementing the appropriate solutions. By applying these practices, developers can create reliable, high-performing Go applications that efficiently handle HTTP connections and mitigate potential issues.
