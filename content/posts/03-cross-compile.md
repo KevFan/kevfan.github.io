@@ -88,19 +88,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        platform: [amd64, arm64]
+        platform: [linux/amd64, linux/arm64]
 
     steps:
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-      with:
-        platforms: all
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
@@ -117,7 +111,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        platforms: linux/amd64,linux/arm64
+        platforms: ${{ matrix.platform }}
         push: true
         tags: yourusername/yourimage:tag
 ```
