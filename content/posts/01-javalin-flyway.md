@@ -15,7 +15,7 @@ In this article, we will explore how to use Flyway with Javalin to automate data
 
 ## Steps
 1. Add Flyway to your build tool by adding the following Maven dependency to your `pom.xml` file:
-```
+```xml
 <dependency>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-core</artifactId>
@@ -30,7 +30,7 @@ implementation 'org.flywaydb:flyway-core:9.16.3'
 2. Create a `flyway/migrations` directory in your project's `src/main/resources` folder. This directory will contain all your database migration scripts.
 
 3. Create an example migration script, such as `V1_0__create_user_schema.sql`, in the `flyway/migrations` directory. The script should contain the SQL statements to create the required database tables, columns or data. For example:
-```
+```sql
 CREATE TABLE users (
     id serial PRIMARY KEY,
     name VARCHAR (100) UNIQUE NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE users (
 ```
 
 4. Run Flyway to migrate the database schema before connecting to the database. Here is an example Kotlin code that does this:
-```
+```kotlin
 // Set up the database connection details
 val pg = EmbeddedPostgres.start()
 
@@ -60,7 +60,7 @@ Database.connect(dbUrl, "org.postgresql.Driver", dbUser, dbPassword)
 This function configures Flyway to use the given database URL, username, and password, and to look for migration scripts in the `flyway/migrations` directory. It then runs the migration using the `flyway.migrate()` method, which applies any pending migration scripts to the database. Finally, it connects to the database using the `Database.connect()`.
 
 5. When Flyway is properly configured and integrated into the Javalin application, the following logs will be generated at application startup. These logs confirm that Flyway has validated the migration files, created the schema history table, and migrated the database schema to the target version without any issues. This serves as an indication that the database migration process has been executed successfully, and the Javalin application is ready to use.
-```
+```log
 23:08:02.089 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.008s)
 23:08:02.096 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
 23:08:02.112 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
