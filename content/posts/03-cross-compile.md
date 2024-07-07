@@ -75,7 +75,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t yourusername/yourimage
 ```
 
 ### Example Workflow Configuration
-In your GitHub Actions workflow file (.github/workflows/build.yml), set up the build job to use Buildx for cross-compilation and distribute the build process across multiple runners, as per [Docker's documentation(https://docs.docker.com/build/ci/github-actions/multi-platform/#distribute-build-across-multiple-runners)]:
+In your GitHub Actions workflow file (.github/workflows/build.yml), set up the build job to use Buildx for cross-compilation and distribute the build process across multiple runners, as per [Docker's documentation](https://docs.docker.com/build/ci/github-actions/multi-platform/#distribute-build-across-multiple-runners):
 
 ```yaml
 name: CI
