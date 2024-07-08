@@ -1,6 +1,6 @@
 +++
 title = 'Accelerating Docker Builds with Cross Compilation on GitHub Runners'
-date = 2024-07-04T18:23:00+01:00
+date = 2024-07-08T18:23:00+01:00
 +++
 
 
@@ -11,8 +11,9 @@ Building Docker images for multiple architectures on GitHub runners, which curre
 Docker multi-architecture images are essential for ensuring that applications run smoothly on various hardware platforms, from x86_64 servers to ARM-based devices. However, building these images efficiently is a challenge, particularly when working within the constraints of GitHub runners without using your own self-hosted runner. By leveraging cross-compilation, developers can bypass the slow emulation process provided by QEMU, leading to faster builds and more efficient CI/CD pipelines.
 
 ## The Problem
-GitHub free runners effectively support only the amd64 architecture, which complicates the process of building Docker images for other architectures, such as ARM. While GitHub provides one free ARM64 runner (`macOS-latest`), it [does not support nested virtualization](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681) which is required for building Docker images. Consequently, using QEMU for emulation allows for the creation of multi-architecture images, but it significantly increases build times. This delay is detrimental to development workflows, causing longer feedback loops and slower deployment cycles. Although GitHub now offers ARM runners on their enterprise version, this option wasn't available at the time of our pull request. GitHub plans to offer free ARM runners later in the year, but for now, we need a different solution.
+GitHub free runners effectively support only the amd64 architecture, which complicates the process of building Docker images for other architectures, such as ARM. While GitHub provides one free ARM64 runner (`macOS-latest`), it [does not support nested virtualization](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681) which is required for building Docker images. Consequently, using QEMU for emulation allows for the creation of multi-architecture images, but it significantly increases build times. 
 
+This delay is detrimental to development workflows, causing longer feedback loops and slower deployment cycles. Although GitHub now offers ARM runners on their enterprise version, this option wasn't available at the time of our pull request. GitHub plans to offer free ARM runners later in the year, but for now, we need a different solution.
 
 ## Case Study: Kuadrant Limitador
 The [Kuadrant Limitador project](https://github.com/Kuadrant/limitador/pull/222) faced this exact challenge. Initially, the project relied on QEMU for building ARM images, which resulted in long build times. By adopting cross-compilation, we managed to substantially reduce the build duration, enhancing our development process.
@@ -21,9 +22,12 @@ The [Kuadrant Limitador project](https://github.com/Kuadrant/limitador/pull/222)
 Using QEMU, the build process for ARM images was slow and resource-intensive. The builds often took considerably longer than those for amd64, delaying the overall CI/CD pipeline.
 
 ### After Cross Compilation
-We introduced cross-compilation into our build process. By setting up the build environment to compile for ARM on an amd64 machine, we effectively bypassed the need for QEMU emulation. Additionally, we distributed the build process across multiple GitHub runners, further decreasing the build time. This change led to a significant decrease in build times, as demonstrated by our [pull request](https://github.com/Kuadrant/limitador/pull/222).
+We introduced cross-compilation into our build process. By setting up the build environment to compile for ARM on an amd64 machine, we effectively bypassed the need for QEMU emulation. This change led to a significant decrease in build times, as demonstrated by our [pull request](https://github.com/Kuadrant/limitador/pull/222).
 
-Here's a graph illustrating the dramatic reduction in build times:
+To further optimize the build process, we distributed the builds across multiple GitHub runners. This parallelization allowed us to reduce the total build time even further, leading to a much more efficient workflow.
+
+### Build Time Comparison
+Here's a comparison of our build times before and after implementing cross-compilation and parallel builds:
 
 ![build-time-before-after](/03-build-times.png)
 
