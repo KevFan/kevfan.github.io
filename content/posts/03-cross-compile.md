@@ -11,7 +11,7 @@ Building Docker images for multiple architectures on GitHub runners, which curre
 Docker multi-architecture images are essential for ensuring that applications run smoothly on various hardware platforms, from x86_64 servers to ARM-based devices. However, building these images efficiently is a challenge, particularly when working within the constraints of GitHub runners without using your own self-hosted runner. By leveraging cross-compilation, developers can bypass the slow emulation process provided by QEMU, leading to faster builds and more efficient CI/CD pipelines.
 
 ## The Problem
-GitHub free runners currently support only the amd64 architecture, complicating the process of building Docker images for other architectures, such as ARM. While using QEMU for emulation allows for the creation of multi-architecture images, it significantly increases build times. This delay is detrimental to development workflows, causing longer feedback loops and slower deployment cycles. Additionally, GitHub now provides one free ARM64 runner, `macOS-latest`, but it [does not support nested virtualization](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681) which is required for building Docker images. While GitHub also provides ARM runners on their enterprise version, this option wasn't available at the time of our pull request. GitHub plans to offer free ARM runners later in the year, but for now, we need a different solution.
+GitHub free runners effectively support only the amd64 architecture, which complicates the process of building Docker images for other architectures, such as ARM. While GitHub provides one free ARM64 runner (`macOS-latest`), it [does not support nested virtualization](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681) which is required for building Docker images. Consequently, using QEMU for emulation allows for the creation of multi-architecture images, but it significantly increases build times. This delay is detrimental to development workflows, causing longer feedback loops and slower deployment cycles. Although GitHub now offers ARM runners on their enterprise version, this option wasn't available at the time of our pull request. GitHub plans to offer free ARM runners later in the year, but for now, we need a different solution.
 
 
 ## Case Study: Kuadrant Limitador
@@ -75,48 +75,8 @@ docker buildx build --platform linux/amd64,linux/arm64 -t yourusername/yourimage
 ```
 
 ### Example Workflow Configuration
-In your GitHub Actions workflow file (.github/workflows/build.yml), set up the build job to use Buildx for cross-compilation and distribute the build process across multiple runners, as per [Docker's documentation](https://docs.docker.com/build/ci/github-actions/multi-platform/#distribute-build-across-multiple-runners):
+For a complete example of using distributed runners for parallel Docker image builds, refer to Docker's official documentation [here](https://docs.docker.com/build/ci/github-actions/multi-platform/#distribute-build-across-multiple-runners).
 
-```yaml
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        platform: [linux/amd64, linux/arm64]
-
-    steps:
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Check out the repository
-      uses: actions/checkout@v2
-
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        platforms: ${{ matrix.platform }}
-        push: true
-        tags: yourusername/yourimage:tag
-```
-
-By using the `matrix` strategy, you can distribute the build jobs across multiple runners, allowing for parallel execution and further reducing the total build time.
 
 ## Conclusion
 Cross-compilation is a powerful technique for optimizing Docker builds, particularly when dealing with multiple architectures. By leveraging cross-compilation and distributing the build process across multiple runners, the Kuadrant Limitador project significantly reduced its build times, illustrating the potential for enhanced efficiency in CI/CD pipelines. Implementing these strategies in your projects can lead to faster builds, quicker feedback loops, and ultimately a more productive development workflow.
