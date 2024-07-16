@@ -1,8 +1,7 @@
 name: Checks
 on: [pull_request]
 jobs:
-  check-lints:
-    name: linkspector
+  links-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

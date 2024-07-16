@@ -13,3 +13,9 @@ hugo server -D
 ```sh
 hugo
 ```
+
+### How to run markdown linter locally
+
+```sh
+docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest "*.md"
+```
