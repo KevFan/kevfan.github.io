@@ -36,7 +36,7 @@ In the Limitador Operator project, we run integration tests against a shared `ki
 ```sh
 go get -u github.com/onsi/ginkgo/v2/ginkgo
 go get -u github.com/onsi/gomega/...
-````
+```
 
 ### 2. Update Your Test Suite
 
