@@ -1,5 +1,7 @@
 # Pre-requisites
 
+test
+
 - [Hugo](https://gohugo.io/installation/)
 
 ## How to run locally
